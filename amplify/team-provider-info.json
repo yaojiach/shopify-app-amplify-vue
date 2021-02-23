@@ -1,0 +1,27 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-shopifyapp-dev-193621-authRole",
+      "UnauthRoleArn": "arn:aws:iam::804673539863:role/amplify-shopifyapp-dev-193621-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::804673539863:role/amplify-shopifyapp-dev-193621-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-shopifyapp-dev-193621-deployment",
+      "UnauthRoleName": "amplify-shopifyapp-dev-193621-unauthRole",
+      "StackName": "amplify-shopifyapp-dev-193621",
+      "StackId": "arn:aws:cloudformation:us-east-1:804673539863:stack/amplify-shopifyapp-dev-193621/27f52910-756f-11eb-9f23-0aece6d977c1",
+      "AmplifyAppId": "d5qpsgapmti35"
+    },
+    "categories": {
+      "function": {
+        "shopify": {
+          "deploymentBucketName": "amplify-shopifyapp-dev-193621-deployment",
+          "s3Key": "amplify-builds/shopify-6a6a5270587471586336-build.zip"
+        },
+        "shopifyinstall": {
+          "deploymentBucketName": "amplify-shopifyapp-dev-193621-deployment",
+          "s3Key": "amplify-builds/shopifyinstall-596e6b6a5a38507a4d6e-build.zip"
+        }
+      }
+    }
+  }
+}
