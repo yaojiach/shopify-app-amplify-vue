@@ -3,12 +3,17 @@
     "shopify": {
       "build": true,
       "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "shopifyinstall": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "storage",
+          "resourceName": "shopifyappdb",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        }
+      ]
     }
   },
   "api": {
@@ -23,16 +28,21 @@
             "Name",
             "Arn"
           ]
-        },
-        {
-          "category": "function",
-          "resourceName": "shopifyinstall",
-          "attributes": [
-            "Name",
-            "Arn"
-          ]
         }
       ]
+    }
+  },
+  "hosting": {
+    "amplifyhosting": {
+      "service": "amplifyhosting",
+      "providerPlugin": "awscloudformation",
+      "type": "manual"
+    }
+  },
+  "storage": {
+    "shopifyappdb": {
+      "service": "DynamoDB",
+      "providerPlugin": "awscloudformation"
     }
   }
 }

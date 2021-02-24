@@ -1,0 +1,5 @@
+{
+    "tableName": "shopifyappdb",
+    "partitionKeyName": "store_id",
+    "partitionKeyType": "S"
+}

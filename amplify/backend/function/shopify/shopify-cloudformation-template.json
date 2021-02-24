@@ -15,6 +15,14 @@
     },
     "s3Key": {
       "Type": "String"
+    },
+    "storageshopifyappdbName": {
+      "Type": "String",
+      "Default": "storageshopifyappdbName"
+    },
+    "storageshopifyappdbArn": {
+      "Type": "String",
+      "Default": "storageshopifyappdbArn"
     }
   },
   "Conditions": {
@@ -69,6 +77,12 @@
             },
             "REGION": {
               "Ref": "AWS::Region"
+            },
+            "STORAGE_SHOPIFYAPPDB_NAME": {
+              "Ref": "storageshopifyappdbName"
+            },
+            "STORAGE_SHOPIFYAPPDB_ARN": {
+              "Ref": "storageshopifyappdbArn"
             }
           }
         },
@@ -89,12 +103,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "shopifyappLambdaRole699caac2",
+            "shopifyappLambdaRole121c738c",
             {
               "Fn::Join": [
                 "",
                 [
-                  "shopifyappLambdaRole699caac2",
+                  "shopifyappLambdaRole121c738c",
                   "-",
                   {
                     "Ref": "env"
@@ -160,6 +174,58 @@
                   }
                 ]
               }
+            }
+          ]
+        }
+      }
+    },
+    "AmplifyResourcesPolicy": {
+      "DependsOn": [
+        "LambdaExecutionRole"
+      ],
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyName": "amplify-lambda-execution-policy",
+        "Roles": [
+          {
+            "Ref": "LambdaExecutionRole"
+          }
+        ],
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "dynamodb:Put*",
+                "dynamodb:Create*",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:Get*",
+                "dynamodb:BatchGetItem",
+                "dynamodb:List*",
+                "dynamodb:Describe*",
+                "dynamodb:Scan",
+                "dynamodb:Query",
+                "dynamodb:Update*",
+                "dynamodb:RestoreTable*",
+                "dynamodb:Delete*"
+              ],
+              "Resource": [
+                {
+                  "Ref": "storageshopifyappdbArn"
+                },
+                {
+                  "Fn::Join": [
+                    "/",
+                    [
+                      {
+                        "Ref": "storageshopifyappdbArn"
+                      },
+                      "index/*"
+                    ]
+                  ]
+                }
+              ]
             }
           ]
         }

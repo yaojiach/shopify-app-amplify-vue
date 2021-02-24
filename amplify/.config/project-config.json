@@ -8,7 +8,8 @@
       "SourceDir": ".",
       "DistributionDir": "dist",
       "BuildCommand": "yarn generate",
-      "StartCommand": "yarn start"
+      "StartCommand": "yarn start",
+      "ServerlessContainers": false
     }
   },
   "providers": [

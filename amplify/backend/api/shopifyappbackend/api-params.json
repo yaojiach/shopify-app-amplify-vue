@@ -10,11 +10,19 @@
         },
         {
             "name": "/install",
-            "lambdaFunction": "shopifyinstall",
+            "lambdaFunction": "shopify",
             "privacy": {
                 "open": true
             },
             "policyResourceName": "/install"
+        },
+        {
+            "name": "/uninstall",
+            "lambdaFunction": "shopify",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/uninstall"
         }
     ],
     "resourceName": "shopifyappbackend",
@@ -22,16 +30,13 @@
     "functionArns": [
         {
             "lambdaFunction": "shopify"
-        },
-        {
-            "lambdaFunction": "shopifyinstall"
         }
     ],
     "privacy": {
         "auth": 0,
         "unauth": 0,
-        "authRoleName": "amplify-shopifyapp-dev-193621-authRole",
-        "unAuthRoleName": "amplify-shopifyapp-dev-193621-unauthRole"
+        "authRoleName": "amplify-shopifyapp-dev-220249-authRole",
+        "unAuthRoleName": "amplify-shopifyapp-dev-220249-unauthRole"
     },
     "dependsOn": [
         {
@@ -41,15 +46,7 @@
                 "Name",
                 "Arn"
             ]
-        },
-        {
-            "category": "function",
-            "resourceName": "shopifyinstall",
-            "attributes": [
-                "Name",
-                "Arn"
-            ]
         }
     ],
-    "uuid": "f5b49601"
+    "uuid": "a747e38f"
 }

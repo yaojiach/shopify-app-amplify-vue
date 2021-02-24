@@ -3,7 +3,7 @@
     <div>
       <Logo />
       <h1 class="title">
-        Shopify App
+        Welcome to your Shopify App
       </h1>
     </div>
   </div>
