@@ -1,6 +1,15 @@
-# shopify-app-amplify-nuxt
+# shopify-app-amplify-vue[nuxt]
 
-## Build Setup
+This is an attempt (and working version) to build a Shopify app using serverless components. I'm using AWS Amplify as its the simplest. The same stack can be defined and deployed using the underlying Cloudformation templates or CDK.
+
+This project uses AWS Lambda and API Gateway to implement callbacks that Shopify would call during the Shopify app installation process. There are different API endpoints pointing to one single Lambda function. Basic information is stored in a DynamoDB table. 
+
+The frontend is a simple one-page Nuxt app.
+
+## Backend Setup
+
+In `amplify` folder.
+## Frontend Setup
 
 ```bash
 # install dependencies
